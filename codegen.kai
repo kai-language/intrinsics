@@ -1,0 +1,33 @@
+
+#library "llvm"
+
+#foreign llvm #callconv "c" {
+
+    returnAddress          :: (i32) -> rawptr                                              #linkname "llvm.returnaddress"
+    addressOfReturnAddress :: (i32) -> rawptr                                              #linkname "llvm.addressofreturnaddress"
+
+    frameAddress :: (i32) -> rawptr                                                        #linkname "llvm.frameaddress"
+
+    stackSave    :: () -> rawptr                                                           #linkname "llvm.stacksave"
+    stackRestore :: () -> rawptr                                                           #linkname "llvm.stackrestore"
+
+    // TODO: @overloading
+    getDynamicAreaOffset :: () -> i32                                                      #linkname "llvm.get.dynamic.area.offset.i32"
+//  getDynamicAreaOffset :: () -> i64                                                      #linkname "llvm.get.dynamic.area.offset.i64"
+
+    prefetch :: (address: rawptr, rw: u32, locality: u32, cacheType: u32) -> void          #linkname "llvm.prefetch"
+
+    pcmarker :: (id: u32) -> void                                                          #linkname "llvm.pcmarker"
+    readCycleCounter :: () -> u64                                                          #linkname "llvm.readcyclecounter"
+
+    clearCache :: (rawptr, rawptr) -> void                                                 #linkname "llvm.clear_cache"
+
+    instrprofIncrement :: (name: rawptr, hash: u64, nCounters: u32, index: u32) -> void    #linkname "llvm.instrprof_increment"
+    instrprofIncrementStep :: (name: rawptr, hash: u64, nCounters: u32,
+                               index: u32, step: u32) -> void                              #linkname "llvm.instrprof_increment_step"
+
+    instrprofValueProfile :: (name: rawptr, hash: u64, value: u64,
+                              valueKind: u32, index: u32) -> void                          #linkname "llvm.instrprof_value_profile"
+
+    threadPointer :: () -> rawptr                                                          #linkname "llvm.thread.pointer"
+}

@@ -1,0 +1,80 @@
+
+
+#library "llvm"
+
+// TODO: @overloading
+#foreign llvm #callconv "c" {
+
+    pow  :: (x, power: f32) -> f32                                                         #linkname "llvm.pow.f32"
+//  pow  :: (x, power: f64) -> f64                                                         #linkname "llvm.pow.f64"
+
+//  pow  :: (x: f32, power: i32) -> f32                                                    #linkname "llvm.powi.f32"
+//  pow  :: (x: f64, power: i32) -> f32                                                    #linkname "llvm.powi.f64"
+
+    sqrt :: (x: f32) -> f32                                                                #linkname "llvm.sqrt.f32"
+//  sqrt :: (x: f64) -> f64                                                                #linkname "llvm.sqrt.f64"
+
+    exp  :: (x: f32) -> f32                                                                #linkname "llvm.exp.f32"
+//  exp  :: (x: f64) -> f64                                                                #linkname "llvm.exp.f64"
+
+    exp2  :: (x: f32) -> f32                                                               #linkname "llvm.exp2.f32"
+//  exp2  :: (x: f64) -> f64                                                               #linkname "llvm.exp2.f64"
+
+    log  :: (x: f32) -> f32                                                                #linkname "llvm.log.f32"
+//  log  :: (x: f64) -> f64                                                                #linkname "llvm.log.f64"
+
+    log10  :: (x: f32) -> f32                                                              #linkname "llvm.log10.f32"
+//  log10  :: (x: f64) -> f64                                                              #linkname "llvm.log10.f64"
+
+    log2  :: (x: f32) -> f32                                                               #linkname "llvm.log2.f32"
+//  log2  :: (x: f64) -> f64                                                               #linkname "llvm.log2.f64"
+
+    sin  :: (x: f32) -> f32                                                                #linkname "llvm.sin.f32"
+//  sin  :: (x: f64) -> f64                                                                #linkname "llvm.sin.f64"
+
+    cos  :: (x: f32) -> f32                                                                #linkname "llvm.cos.f32"
+//  cos  :: (x: f64) -> f64                                                                #linkname "llvm.cos.f64"
+
+    fma :: (a, b, c: f32) -> f32                                                           #linkname "llvm.fma.f32"
+//  fma :: (a, b, c: f64) -> f64                                                           #linkname "llvm.fma.f64"
+
+    fabs :: (x: f32) -> f32                                                                #linkname "llvm.fabs.f32"
+//  fabs :: (x: f64) -> f64                                                                #linkname "llvm.fabs.f64"
+
+    min :: (x: f32) -> f32                                                                 #linkname "llvm.minnum.f32"
+//  min :: (x: f64) -> f64                                                                 #linkname "llvm.minnum.f64"
+
+    max :: (x: f32) -> f32                                                                 #linkname "llvm.maxnum.f32"
+//  max :: (x: f64) -> f64                                                                 #linkname "llvm.maxnum.f64"
+
+    sign :: (x: f32) -> f32                                                                #linkname "llvm.copysign.f32"
+//  sign :: (x: f64) -> f64                                                                #linkname "llvm.copysign.f64"
+
+    floor :: (x: f32) -> f32                                                               #linkname "llvm.floor.f32"
+//  floor :: (x: f64) -> f64                                                               #linkname "llvm.floor.f64"
+
+    ceil :: (x: f32) -> f32                                                                #linkname "llvm.ceil.f32"
+//  ceil :: (x: f64) -> f64                                                                #linkname "llvm.ceil.f64"
+
+    trunc :: (x: f32) -> f32                                                               #linkname "llvm.trunc.f32"
+//  trunc :: (x: f64) -> f64                                                               #linkname "llvm.trunc.f64"
+
+    rint :: (x: f32) -> f32                                                                #linkname "llvm.rint.f32"
+//  rint :: (x: f64) -> f64                                                                #linkname "llvm.rint.f64"
+
+    nearbyint :: (x: f32) -> f32                                                           #linkname "llvm.nearbyint.f32"
+//  nearbyint :: (x: f64) -> f64                                                           #linkname "llvm.nearbyint.f64"
+
+    round :: (x: f32) -> f32                                                               #linkname "llvm.round.f32"
+//  round :: (x: f64) -> f64                                                               #linkname "llvm.round.f64"
+
+    // MARK: Specialized Arithmetic Intrinsics
+
+    canonicalize :: (f32) -> f32                                                           #linkname "llvm.canonicalize.f32"
+//  canonicalize :: (f64) -> f64                                                           #linkname "llvm.canonicalize.f64"
+
+    fmuladd32  :: (a, b, c: f32) -> f32                                                    #linkname "llvm.fmuladd.f32"
+//  fmuladd64  :: (a, b, c: f64) -> f64                                                    #linkname "llvm.fmuladd.f64"
+
+    // TODO: Arithmetic with Overflow Intrinsics
+}

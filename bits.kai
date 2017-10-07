@@ -1,0 +1,29 @@
+
+#library "llvm"
+
+// TODO: @overloading
+#foreign llvm #callconv "c" {
+
+//  bitreverse :: (u16) -> u16                                                             #linkname "llvm.bitreverse.u16"
+//  bitreverse :: (u32) -> u32                                                             #linkname "llvm.bitreverse.u32"
+    bitreverse :: (u64) -> u64                                                             #linkname "llvm.bitreverse.u64"
+
+//  bswap :: (u16) -> u16                                                                  #linkname "llvm.bswap.u16"
+//  bswap :: (u32) -> u32                                                                  #linkname "llvm.bswap.u32"
+    bswap :: (u64) -> u64                                                                  #linkname "llvm.bswap.u64"
+
+//  countOnes :: (u8)  -> u8                                                               #linkname "llvm.ctpop.u16"
+//  countOnes :: (u16) -> u16                                                              #linkname "llvm.ctpop.u16"
+//  countOnes :: (u32) -> u32                                                              #linkname "llvm.ctpop.u32"
+    countOnes :: (u64) -> u64                                                              #linkname "llvm.ctpop.u64"
+
+//  countLeadingZeros :: (u8)  -> u8                                                       #linkname "llvm.ctlz.u16"
+//  countLeadingZeros :: (u16) -> u16                                                      #linkname "llvm.ctlz.u16"
+//  countLeadingZeros :: (u32) -> u32                                                      #linkname "llvm.ctlz.u32"
+    countLeadingZeros :: (u64) -> u64                                                      #linkname "llvm.ctlz.u64"
+
+//  countTrailingZeros :: (u8)  -> u8                                                      #linkname "llvm.cttz.u16"
+//  countTrailingZeros :: (u16) -> u16                                                     #linkname "llvm.cttz.u16"
+//  countTrailingZeros :: (u32) -> u32                                                     #linkname "llvm.cttz.u32"
+    countTrailingZeros :: (u64) -> u64                                                     #linkname "llvm.cttz.u64"
+}

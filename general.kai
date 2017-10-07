@@ -1,0 +1,17 @@
+
+#library "llvm"
+
+#foreign llvm #callconv "c" {
+
+    trap      :: () -> void                                                                #linkname "llvm.debugtrap"
+    debugTrap :: () -> void                                                                #linkname "llvm.debugtrap"
+
+    // TODO: @overloading
+//  expect :: (x: bool, expected: bool) -> bool                                            #linkname "llvm.expect.i1"
+//  expect :: (x: i32, expected: i32) -> i32                                               #linkname "llvm.expect.i32"
+    expect :: (x: i64, expected: i64) -> i64                                               #linkname "llvm.expect.i64"
+
+    assume :: (cond: bool) -> void                                                         #linkname "llvm.assume"
+
+    loadRelative :: (ptr: rawptr, offset: i64) -> rawptr                                   #linkname "llvm.load.relative.i64"
+}
